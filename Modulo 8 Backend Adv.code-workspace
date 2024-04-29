@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../modulo 8/03-books-api"
 		}
 	],
 	"settings": {}
