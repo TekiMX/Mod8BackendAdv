@@ -14,7 +14,7 @@ const connect = () => {
   })
 
   connection.on('error', (error) => {
-    console.log('❌ database connecton error ❌')
+    console.log('❌ database connecton error ❌', error)
   })
 }
 

@@ -10,6 +10,6 @@ api.use(express.json())
 
 // Aqui van las rutas
 api.listen(PORT, () => {
-  console.log(` 💻 Server is running 🏃 on 🌎 http://localhost:${PORT}`)
+  console.log(`Server 💻 is running 🏃 on 🌎 http://localhost:${PORT}`)
 }
 )
