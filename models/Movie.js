@@ -6,11 +6,10 @@ const genreEnum = ['Action', 'Adventure', 'Comedy', 'Drama', 'Documental', 'Fant
 const movieSchema = new mongoose.Schema({
   title: { type: String, required: true },
   director: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Director', required: true }], // ObjectID es un tipo de  dato utilizado por Mongoose para identificar documentos en MongoDb. ref: 'Author' indica que el campo authors se relaciona con el modelo Author
-  publishDate: { type: Date }, // YYYY-MM-DD format please
+  releaseDate: { type: Date }, // YYYY-MM-DD format please
   length: { type: Number, required: true },
   score: { type: Number, required: true },
   genre: { type: String, required: true, enum: genreEnum },
-  storyline: { type: String, required: true },
   isActive: { type: Boolean, default: true }
 }, { timestamps: true }) // timestamps: true agrega createdAt y updatedAt
 
