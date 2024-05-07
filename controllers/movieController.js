@@ -20,7 +20,7 @@ const createMovie = async (req, res) => {
 
     // Create Directors one by one and save them in DB
 
-    const directorModels = await Promise.all(movieData.director.map(async director => {
+    const directorModel = await Promise.all(movieData.director.map(async director => {
       // search if author exists
       const existingDirector = await Director.findOne({ firstName: director.firstName, lastName: director.lastname, birthDate: director.birdDate })
       // if author exists, retrieve it
@@ -34,6 +34,12 @@ const createMovie = async (req, res) => {
     ))
 
     // Now than we save the Directors, we need to retrieve their ID to assing them to te movie
+
+    movieData.director = directorModel.map(director => director.id)
+
+    // Create movie Finally!!!
+    const newMovie = await Movie.create(movieData)
+    res.status(201).json(newMovie)
   } catch (err) {
     res.status(400).json({ error: err.message })
   }
